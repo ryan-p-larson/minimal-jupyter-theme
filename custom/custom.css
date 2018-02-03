@@ -1,0 +1,172 @@
+/* Jupyter notebook theme, ported from Observable Notebooks */
+
+/* Change background color to white */
+.notebook_app { background-color: #ffffff !important;}
+
+
+#notebook-container {
+	/* Get rid of box shadows around notebook*/
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+
+	/* Make max width reasonable */
+	width: 100%;
+
+	/* Increase padding */
+	margin: none;
+	padding-left: unset;
+	padding-right: 10%;
+}
+
+
+
+/* Get rid of box shadows from menubar */
+.notebook_app > #header {
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+/* Make menubar full width */
+#menubar-container {
+	width: 100%;
+}
+/* Remove background color from menubar */
+.navbar.navbar-default {
+	background-color: #fff !important;
+}
+/* Decrease menu font size */
+#menus {
+	font-size: 10px;
+	min-height: 25px;
+	height: 25px;
+}
+/* Decrease menu dropdown padding to accomodate */
+#menus a {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+/* Remove distracting 'Trusted' notification */
+#notification_trusted, .kernel_indicator_name, .fa.fa-bars {
+	/*visibility: hidden;*/
+	display: none !important;
+}
+
+
+
+/* Hide Jupyter notebook prompt selection indicator */
+div.cell.selected:before,
+.edit_mode div.cell.selected:before,
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before  {
+	display: none !important;
+}
+
+/* Selected Cell border indicators */
+.edit_mode div.cell.selected, div.cell.selected {
+	border: none !important;
+}
+
+/* Selected cell background color */
+div.cell.text_cell.selected .cm-s-ipython.CodeMirror, 
+div.cell.text_cell.selected .inner_cell, 
+div.cell.selected .cm-s-ipython.CodeMirror {
+	background-color: #d7d4f0;
+}
+
+
+
+div.cell.text_cell.unrendered.unselected .inner_cell,
+div.cell.text_cell.rendered.unselected .inner_cell {
+    background-color: #fff;
+}
+
+div.cell.text_cell.unrendered.unselected .inner_cell {
+	border-left: 1px solid #a9b0bc;
+    margin-left: -1px;
+}
+
+
+div.cell.text_cell.unrendered.selected .cm-s-ipython.CodeMirror-focused,
+div.cell.text_cell.unrendered.selected .inner_cell {
+	border-left: 1px solid #000;
+    margin-left: -1px;
+    background-color: #d7d4f0;
+    transition: border-left-color .25s linear
+}
+
+
+/* Change background and indicator when focused */
+.cm-s-ipython.CodeMirror {
+    border-left: 1px solid #a9b0bc;
+    height: auto;
+    margin-left: -1px;
+    background-color: rgba(240, 240, 240, 0.5);
+}
+.cm-s-ipython.CodeMirror-focused {
+	border-left: 1px solid #000;
+    margin-left: -1px;
+    background-color: #d7d4f0;
+}
+
+
+
+
+
+
+
+
+/* Increase prompt left padding so highlighting goes to border */
+div.prompt {
+	padding-left: 0px;
+	color: #a9b0bc;
+}
+
+/* Highlight HOVERED cell prompt */
+div.prompt:hover {
+	color: #000;
+	background-color: #F0F0F0 !important;
+	border-right: 1px solid #000;
+	margin-right: 0px;
+	z-index: 3;
+}
+
+/* Highlight SELECTED cell prompt text */
+div.selected div.prompt { color: #000; }
+
+/* Get rid of output prompts */
+div.prompt.output_prompt { visibility: hidden !important; }
+
+/* Hide line number/folding */
+.CodeMirror-foldgutter { display: none !important; }
+
+
+/* Decrease space between cells. */
+div.cell {
+	padding: none !important;
+	margin: 5px !important;
+	margin-left: 0px !important;
+}
+
+/* Get rid of prompt before cell */
+/* MOZILLA BUG BLINKING CURSOR */
+div.cell.code_cell.rendered.unselected::before {
+	display: none;
+}
+
+/* Get rid of borders around cells: cell .code_cell .rendered .selected; */
+div.cell.rendered {
+	border: unset;
+	border-radius: 0px !important;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+div.input_area {
+	border: unset;
+	border-radius: 0px !important;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
