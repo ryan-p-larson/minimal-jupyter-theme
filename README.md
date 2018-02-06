@@ -1,6 +1,10 @@
 # Minimal Jupyter Theme
 
+A Jupyter theme that doesn't just change colorschemes. 
+
 *Note:* This was heavily inspired by Mike Bostock's work at [Observable Notebooks](https://www.observablehq.com).
+
+*Note:* Working in Chrome on Windows/Linux. Firefox has issues with blinking cursor.
 
 #### Theme Preview 
 
