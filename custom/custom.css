@@ -1,58 +1,269 @@
-/* Jupyter notebook theme, ported from Observable Notebooks */
+/* Jupyter notebook theme, 
+  ported from Observable Notebooks.
+  Made by Ryan Larson
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,400i,700');
+
+/* ----------------------------------------------------------------------------
+ * VARIABLES 
+ * ----------------------------------------------------------------------------
+ */
+:root {
+	/* Fonts */
+	--font-family-code: menlo, consolas, monaco, monospace;
+    --font-family-text: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica, helvetica neue, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    
+    /* Colors */
+    --color-white: 	  #ffffff;
+    --color-light-g:  #d7d4f0;
+    --color-dark-g:   #a9b0bc;
+    --color-light-b:  #333333;
+    --color-dark-b:   #000000;
+
+	--base-00: #2d2d2d;
+	--base-01: #393939;
+	--base-02: #515151;
+	--base-03: #747369;
+	--base-04: #a09f93;
+	--base-05: #d3d0c8;
+	--base-06: #e8e6df;
+	--base-07: #f2f0ec;
+	--base-08: #f2777a;
+	--base-09: #f99157;
+	--base-0A: #ffcc66;
+	--base-0B: #99cc99;
+	--base-0C: #66cccc;
+	--base-0D: #6699cc;
+	--base-0E: #cc99cc;
+	--base-0F: #d27b53;
+
+
+    /* Borders */
+    --border-normal:  1px solid #a9b0bc;
+    --border-emphas:  1px solid #000;
+
+
+    /* Observable HQ --------------------------------------------------------- */
+    --mono_fonts: 12px/1.5 Menlo, Consolas, monospace;
+    --selection: 			#d7d4f0;
+}
+
+
+/* ----------------------------------------------------------------------------
+ * HTML
+ * --------------------------------------------------------------------------*/
+
+body {
+    -webkit-text-size-adjust: 100%;
+    color: var(--base-01);
+}
+
+hr {
+	border: none;
+	background-color: var(--base-03);
+	height: 1px;
+}
+
+blockquote {
+	border-left: 5px solid var(--base-03);
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: var(--base-03);
+}
+
+
+pre {
+    font-family: var(--font-family-code);
+    font-size: 1em
+}
+
+div.cell a {
+    -webkit-text-decoration-skip: objects;
+    background-color: transparent;
+    color: #266bd9 !important;
+    text-decoration: none !important;
+}
+div.cell a:focus,
+div.cell a:hover {
+    text-decoration: underline !important;
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+b,
+strong {
+    font-weight: inherit;
+    font-weight: bolder
+}
+
+code,
+kbd,
+samp {
+    font-family: var(--font-family-code);
+    font-size: 1em
+}
+
+dfn { font-style: italic }
+
+mark {
+    background-color: #ff0;
+    color: var(--base-01);
+}
+
+small { font-size: 80% }
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub { bottom: -.25em }
+
+sup { top: -.5em }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: var(--font-family-text);
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0
+}
+
+button,
+input { overflow: visible }
+
+button,
+select { text-transform: none }
+
+
+
+/* ----------------------------------------------------------------------------
+ * FONTS
+ output_subarea output_text output_stream output_stderr
+
+ * --------------------------------------------------------------------------*/
+
+#notebook { font-size: 12px; }
+
+div.CodeMirror,
+div.output_area pre,
+div.output_wrapper,
+div.output_std_err,
+div.output_stream { 
+	font-family: var(--font-family-code);
+	/*font-size: 12px;*/
+}
+div.cell.text_cell { font-family: var(--font-family-text) }
+
+
+.rendered_html {
+	color: var(--base-01);
+	line-height: 1.5;
+}
+
+.rendered_html h3,
+.rendered_html h4 {
+	font-size: 1.25rem,
+	font-weight: 500;
+	line-height: 1.25;
+	margin-bottom: 0;
+	margin-top: 1rem;
+}
+
+.rendered_html h2 {
+	font-size: 1.5rem;
+}
+
+.rendered_html h1,
+.rendered_html h2 {
+	font-size: 1.25rem,
+	font-weight: 500;
+	line-height: 1.25;
+	margin-bottom: 0;
+	margin-top: 2rem;
+}
+
+.rendered_html h1 {
+	font-size: 2.25rem;
+}
+
+
+/* ----------------------------------------------------------------------------
+ * NOTEBOOK APPEARANCE
+ * --------------------------------------------------------------------------*/
 
 /* Change background color to white */
-.notebook_app { background-color: #ffffff !important;}
+.notebook_app,
+.navbar.navbar-default { background-color: var(--color-white) }
 
-
-#notebook-container {
-	/* Get rid of box shadows around notebook*/
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-
-	/* Make max width reasonable */
-	width: 100%;
-
-	/* Increase padding */
-	margin: none;
-	padding-left: unset;
-	padding-right: 10%;
+/* Shadows! */
+#notebook-container, 
+#header,
+div.output.output_scroll,
+div.out_prompt_overlay:hover {
+	-webkit-box-shadow: unset !important;
+	box-shadow: unset !important;
 }
 
-
-
-/* Get rid of box shadows from menubar */
-.notebook_app > #header {
-	-webkit-box-shadow: none !important;
-	box-shadow: none !important;
-}
-/* Make menubar full width */
+/* Full width */
+#notebook-container, 
 #menubar-container {
 	width: 100%;
-}
-/* Remove background color from menubar */
-.navbar.navbar-default {
-	background-color: #fff !important;
-}
-/* Decrease menu font size */
-#menus {
-	font-size: 10px;
-	min-height: 25px;
-	height: 25px;
-}
-/* Decrease menu dropdown padding to accomodate */
-#menus a {
-	padding-top: 3px;
-	padding-bottom: 3px;
-	padding-left: 12px;
-	padding-right: 12px;
+	margin: unset;
 }
 
-/* Remove distracting 'Trusted' notification */
-#notification_trusted, .kernel_indicator_name, .fa.fa-bars {
-	/*visibility: hidden;*/
-	display: none !important;
+/* Increase padding to left for wider hover effect */
+#notebook-container {
+	padding-left: unset;
+	padding-right: 15vw;
 }
 
+
+/* ----------------------------------------------------------------------------
+ * CELL APPEARANCE
+ * --------------------------------------------------------------------------*/
+div.cell { 
+	padding: unset;
+	margin: 16px 0px;
+}
+
+/* Center HTML tables in output */
+div.output_area .rendered_html table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* PROMPTS */
+/* Get rid of output prompts */
+div.prompt.output_prompt { visibility: hidden !important; }
+
+/* Increase prompt left padding so highlighting goes to border */
+div.prompt {
+	width: 15vw;
+	padding-left: unset !important;
+	color: #a9b0bc;
+}
+
+/* Highlight HOVERED cell prompt */
+div.prompt:hover {
+	color: var(--base-01);
+	background-color: var(--selection) !important;
+	border-right: 1px solid #000;
+}
+
+/* Highlight SELECTED cell prompt text */
+div.selected div.prompt { color: var(--base-01); }
 
 
 /* Hide Jupyter notebook prompt selection indicator */
@@ -63,110 +274,124 @@ div.cell.selected.jupyter-soft-selected:before  {
 	display: none !important;
 }
 
-/* Selected Cell border indicators */
-.edit_mode div.cell.selected, div.cell.selected {
-	border: none !important;
-}
-
-/* Selected cell background color */
-div.cell.text_cell.selected .cm-s-ipython.CodeMirror, 
-div.cell.text_cell.selected .inner_cell, 
-div.cell.selected .cm-s-ipython.CodeMirror {
-	background-color: #d7d4f0;
-}
-
-
-
-div.cell.text_cell.unrendered.unselected .inner_cell,
-div.cell.text_cell.rendered.unselected .inner_cell {
-    background-color: #fff;
-}
-
-div.cell.text_cell.unrendered.unselected .inner_cell {
-	border-left: 1px solid #a9b0bc;
-    margin-left: -1px;
+/* HIDE BORDERS */
+.edit_mode div.cell.selected, div.cell.selected,
+div.cell.rendered, div.input_area,
+div.out_prompt_overlay:hover, .out_prompt_overlay.prompt {
+	border: unset;
+	border-radius: unset !important;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
 }
 
 
-div.cell.text_cell.unrendered.selected .cm-s-ipython.CodeMirror-focused,
-div.cell.text_cell.unrendered.selected .inner_cell {
-	border-left: 1px solid #000;
-    margin-left: -1px;
-    background-color: #d7d4f0;
-    transition: border-left-color .25s linear
+/* ----------------------------------------------------------------------------
+ * CELL BEHAVIOR
+ * --------------------------------------------------------------------------*/
+
+/* All Indicator transitions */
+div.cell .inner_cell,
+div.cell .CodeMirror { 
+	transition: border-left-color .2s linear;
+	transition: margin-left: .2s linear; 
 }
 
+/* Markdown RENDERED should be white bg with no indicator */
+div.cell.text_cell.rendered.unselected .inner_cell { background-color: #fff; }
 
-/* Change background and indicator when focused */
-.cm-s-ipython.CodeMirror {
-    border-left: 1px solid #a9b0bc;
+/* MARKDOWN RENDERED CELL's code should be highlighted */
+div.cell.text_cell.rendered code { background-color: var(--base-07); }
+
+/* Code cells + markdown cells input (code) should by default be a shade darker. */
+div.cell.text_cell.unrendered.unselected .CodeMirror,
+div.cell .CodeMirror {
+	background-color: var(--base-07);
+	border-left: var(--border-normal);
+	margin-left: -1px;
+	color: var(--base-01);
+    font: var(--mono_fonts);
     height: auto;
-    margin-left: -1px;
-    background-color: rgba(240, 240, 240, 0.5);
-}
-.cm-s-ipython.CodeMirror-focused {
-	border-left: 1px solid #000;
-    margin-left: -1px;
-    background-color: #d7d4f0;
 }
 
-
-
-
-
-
-
-
-/* Increase prompt left padding so highlighting goes to border */
-div.prompt {
-	padding-left: 0px;
-	color: #a9b0bc;
+/* When focused, add a black indicator */
+div.cell.text_cell.unrendered.selected .CodeMirror-focused,
+div.cell.selected .CodeMirror-focused {
+	border-left: var(--border-emphas);
 }
 
-/* Highlight HOVERED cell prompt */
-div.prompt:hover {
-	color: #000;
-	background-color: #F0F0F0 !important;
-	border-right: 1px solid #000;
-	margin-right: 0px;
-	z-index: 3;
+/* All cells, when selected should be darker than normal */
+div.cell.text_cell.unrendered.selected .CodeMirror,
+div.cell.text_cell.rendered.selected .inner_cell,
+div.cell.selected .CodeMirror {
+	background-color: var(--selection);
 }
 
-/* Highlight SELECTED cell prompt text */
-div.selected div.prompt { color: #000; }
 
-/* Get rid of output prompts */
-div.prompt.output_prompt { visibility: hidden !important; }
+/* ----------------------------------------------------------------------------
+ * COLORS
+ * --------------------------------------------------------------------------*/
+/* SPANS */
+span.ansiblack 			{ color: var(--base-01); }
+span.ansiblue 			{ color: var(--base-0C); }
+span.ansigray 			{ color: var(--base-05); }
+span.ansigreen 			{ color: var(--base-0B); }
+span.ansipurple 		{ color: var(--base-0E); }
+span.ansired 			{ color: var(--base-08); }
+span.ansiyellow 		{ color: var(--base-0A); }
+div.output_stderr 		{ background-color: #FFFFFF; }
 
-/* Hide line number/folding */
-.CodeMirror-foldgutter { display: none !important; }
+/* ANSI colors */
+.ansi-red-fg 			{ color: var(--base-08); font-weight: bold; }
+.ansi-green-fg 			{ color: var(--base-0B); }
+.ansi-cyan-fg 			{ color: var(--base-0C); }
+.ansi-blue-fg 			{ color: var(--base-0D); }
+
+/* CODE MIRROR */
+span.cm-comment 		{ color: var(--base-03); }
+span.cm-atom 			{ color: #D14187; }
+span.cm-number 			{ color: var(--base-0D); }
+span.cm-property 		{ color: #D14187; }
+span.cm-attribute 		{ color: var(--base-0B); }
+
+span.cm-keyword 		{ color: var(--base-08); font-weight: normal; }
+span.cm-string 			{ color: var(--base-0A); }
+span.cm-operator 		{ color: var(--base-09); font-weight: normal; }
+span.cm-builtin 		{ color: var(--base-0E); }
+span.cm-variable 		{ color: var(--base-0C); }
+span.cm-variable-2 		{ color: var(--base-0D); }
+span.cm-def 			{ color: var(--base-0C); }
+span.cm-error 			{ color: var(--base-08); }
+span.cm-bracket 		{ color: var(--base-03); }
+span.cm-tag 			{ color: var(--base-08); }
+span.cm-link 			{ color: var(--base-0E); }
 
 
-/* Decrease space between cells. */
-div.cell {
-	padding: none !important;
-	margin: 5px !important;
-	margin-left: 0px !important;
+/* ----------------------------------------------------------------------------
+ * CodeMirror
+ * --------------------------------------------------------------------------*/
+ .CodeMirror-wrap pre {
+    white-space: pre-wrap;
+    word-break: normal;
+    word-wrap: break-word
 }
 
-/* Get rid of prompt before cell */
-/* MOZILLA BUG BLINKING CURSOR */
-div.cell.code_cell.rendered.unselected::before {
-	display: none;
-}
+.CodeMirror-lines { padding: 6px 10px }
 
-/* Get rid of borders around cells: cell .code_cell .rendered .selected; */
-div.cell.rendered {
-	border: unset;
-	border-radius: 0px !important;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-}
-div.input_area {
-	border: unset;
-	border-radius: 0px !important;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
+.CodeMirror-cursor { border-left: 1px solid #505050}
+
+.CodeMirror-focused .CodeMirror-selected { background: var(--base-07)}
+
+.CodeMirror-line::selection,
+.CodeMirror-line>span::selection,
+.CodeMirror-line>span>span::selection { background: var(--base-07) }
+
+.CodeMirror-line::-moz-selection,
+.CodeMirror-line>span::-moz-selection,
+.CodeMirror-line>span>span::-moz-selection { background: var(--base-07) }
+
+.CodeMirror .CodeMirror-matchingbracket {
+    color: var(--base-0C) !important;
+	border-bottom: 1px solid var(--base-01);
 }
