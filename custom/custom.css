@@ -3,12 +3,9 @@
   Made by Ryan Larson
 */
 
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,400i,700');
-
 /* ----------------------------------------------------------------------------
- * VARIABLES 
- * ----------------------------------------------------------------------------
- */
+ * VARIABLES
+ * --------------------------------------------------------------------------*/
 :root {
 	/* Fonts */
 	--font-family-code: menlo, consolas, monaco, monospace;
@@ -151,7 +148,6 @@ select { text-transform: none }
 /* ----------------------------------------------------------------------------
  * FONTS
  output_subarea output_text output_stream output_stderr
-
  * --------------------------------------------------------------------------*/
 
 #notebook { font-size: 12px; }
@@ -162,7 +158,7 @@ div.output_wrapper,
 div.output_std_err,
 div.output_stream { 
 	font-family: var(--font-family-code);
-	/*font-size: 12px;*/
+	font-size: 12px;
 }
 div.cell.text_cell { font-family: var(--font-family-text) }
 
